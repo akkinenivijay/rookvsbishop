@@ -2,8 +2,8 @@ package com.zushealth
 
 import scala.util.control.Breaks._
 
-/** Board object represents a singleton instance of chess board representing the
-  * current state of the game.
+/** Board object represents a stateful singleton instance of chess board
+  * representing the current state of the game.
   */
 object Board {
 
@@ -18,21 +18,28 @@ object Board {
     }
   }
 
-  def addPeice(col: Char, row: Int, piece: Piece) = {
-    if (col > 'h' | col < 'a')
+  /** Adds an object of Type `Piece` at the given coordinates.
+    *
+    * @param col
+    * @param row
+    * @param piece
+    */
+  def addPeice(piece: Piece) = {
+    if (piece.col > 'h' | piece.col < 'a')
       throw new IllegalArgumentException(
         "col must be in the range of 'a' to 'h' "
       )
-    if (row < 1 | row > 8)
+    if (piece.row < 1 | piece.row > 8)
       throw new IllegalArgumentException(
         "row must be in the range of 1 to 8 "
       )
-    state(row - 1)(col - 'a') = Some(piece)
+    state(piece.row - 1)(piece.col - 'a') = Some(piece)
   }
 
   /** Checks if the board is empty. This method applies a lambda function
     * _==None to check if the row is empty and breaks out of loop if any row has
-    * values other than None.
+    * values other than None. This method is not needed for our problem but
+    * makes a good utility function to check emptiness in case of errros.
     *
     * @return
     */
