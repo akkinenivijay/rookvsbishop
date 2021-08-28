@@ -7,12 +7,20 @@ trait Piece {
     * NotImplemented Error
     */
   def canCapture(): Boolean = ???
+
+  /** the toString method in the parent trait results in the class name being
+    * printed by the toString method
+    *
+    * @return
+    */
 }
 
 class Rook extends Piece {
   override def canCapture(): Boolean = true
+  override def toString: String = "Rook"
 }
 
 class Bishop extends Piece {
   override def canCapture(): Boolean = true
+  override def toString: String = "Bishop"
 }
