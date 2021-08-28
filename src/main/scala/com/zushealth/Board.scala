@@ -36,6 +36,24 @@ object Board {
     state(piece.row - 1)(piece.col - 'a') = Some(piece)
   }
 
+  /** Removes an object of Type `Piece` at the given coordinates.
+    *
+    * @param col
+    * @param row
+    * @param piece
+    */
+  def removePeice(row: Int, col: Char) = {
+    if (col > 'h' | col < 'a')
+      throw new IllegalArgumentException(
+        "col must be in the range of 'a' to 'h' "
+      )
+    if (row < 1 | row > 8)
+      throw new IllegalArgumentException(
+        "row must be in the range of 1 to 8 "
+      )
+    state(row - 1)(col - 'a') = None
+  }
+
   /** Checks if the board is empty. This method applies a lambda function
     * _==None to check if the row is empty and breaks out of loop if any row has
     * values other than None. This method is not needed for our problem but

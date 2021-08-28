@@ -13,21 +13,40 @@ object Game extends App {
   Board.addPeice(bishop)
   Board.draw()
 
-  val rounds = 1 to 15
+  val rounds = 1 to 3
   breakable {
     for (iter <- rounds) {
-      println("Current Round: " + iter)
       if (Board.isEmpty()) {
         Console.err.println("Invalid State of board being empty!")
         break()
       }
 
       val numberOfMoves = Dice.roll();
-      println(numberOfMoves)
       // Lets toss a coin as board is in a non empty state.
       Coin.toss() match {
-        case 'Heads => println("Its heads")
-        case 'Tails => println("Its tails")
+        case 'Heads => {
+          rook.printPosition()
+          printf(
+            "Round: %s Direction: %s NumberOfMoves: %s \n",
+            iter,
+            'Heads.name,
+            numberOfMoves
+          )
+          val newRook = rook.moveUp(numberOfMoves)
+          newRook.printPosition()
+          // Board.addPeice()
+        }
+        case 'Tails => {
+          printf(
+            "Round: %s Direction: %s NumberOfMoves: %s \n",
+            iter,
+            'Tails.name,
+            numberOfMoves
+          )
+          rook.printPosition()
+          val newRook = rook.moveRight(numberOfMoves)
+          newRook.printPosition()
+        }
       }
     }
   }
