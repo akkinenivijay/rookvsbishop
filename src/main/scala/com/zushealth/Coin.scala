@@ -2,11 +2,17 @@ package com.zushealth
 
 import scala.util.Random
 object Coin {
+
+  /** toss method returns a symbol based on random of 0 or 1. Return tyoe is
+    * symbol rather than a string as it will be cached per vm.
+    *
+    * @return
+    */
   def toss() = {
     val i = Random.nextInt(2)
     i match {
-      case 0 => "H"
-      case 1 => "T"
+      case 0 => 'Head
+      case 1 => 'Tail
     }
   }
 }
