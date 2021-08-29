@@ -11,8 +11,8 @@ object Coin {
   def toss() = {
     val i = Random.nextInt(2)
     i match {
-      case 0 => 'Heads
-      case 1 => 'Tails
+      case 0 => Symbol("Heads")
+      case 1 => Symbol("Tails")
     }
   }
 }

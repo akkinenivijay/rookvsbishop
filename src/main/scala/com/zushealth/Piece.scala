@@ -76,7 +76,7 @@ class Bishop(row: Int, col: Char) extends Piece(row, col) {
           true
         else
           false
-      case _: Bishop =>
+      case bishop: Bishop =>
         throw new IllegalArgumentException(
           "Bishop's capture method takes only Rook as type input!!"
         )

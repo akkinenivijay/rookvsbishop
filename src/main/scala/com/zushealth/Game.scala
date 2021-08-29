@@ -1,6 +1,7 @@
 package com.zushealth
 
 import scala.util.control.Breaks._
+import Console.GREEN
 
 object Game extends App {
 
@@ -15,6 +16,7 @@ object Game extends App {
   var bishop = new Bishop(3, 'c')
   Board.addPeice(rook)
   Board.addPeice(bishop)
+  println(s"${GREEN} Initial state")
   Board.draw()
 
   val rounds = 1 to 15
@@ -36,10 +38,10 @@ object Game extends App {
       )
       Board.removePeice(rook.row, rook.col)
       direction match {
-        case 'Heads => {
+        case Symbol("Heads") => {
           rook = rook.moveUp(numberOfMoves)
         }
-        case 'Tails => {
+        case Symbol("Tails") => {
           rook = rook.moveRight(numberOfMoves)
         }
       }
