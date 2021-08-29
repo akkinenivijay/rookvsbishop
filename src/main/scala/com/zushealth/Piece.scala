@@ -11,7 +11,7 @@ abstract class Piece(val row: Int, val col: Char) {
     * Subtypes extending Peice should implement this method or else it throws a
     * NotImplemented Error
     */
-  def capture(): Boolean = ???
+  def capture(piece: Piece): Boolean = ???
   def printPosition(): Unit = ???
 }
 
@@ -22,7 +22,12 @@ abstract class Piece(val row: Int, val col: Char) {
   */
 class Rook(row: Int, col: Char) extends Piece(row, col) {
 
-  override def capture(): Boolean = true
+  /** Problem statement says both can rook can capture bishop but not very clear
+    * on the condition when that happens.
+    *
+    * @return
+    */
+  override def capture(piece: Piece): Boolean = ???
 
   override def toString: String = "Rook"
 
@@ -33,8 +38,11 @@ class Rook(row: Int, col: Char) extends Piece(row, col) {
     * @return
     */
   def moveUp(numberOfMoves: Int): Rook = {
-    val newRow = (row + numberOfMoves) % 8
-    new Rook(newRow, col)
+    val overflow = row + numberOfMoves
+    if (overflow % 8 == 0)
+      new Rook(8, col)
+    else
+      new Rook(overflow % 8, col)
   }
 
   def moveRight(numberOfMoves: Int): Rook = {
@@ -55,7 +63,25 @@ class Rook(row: Int, col: Char) extends Piece(row, col) {
   */
 class Bishop(row: Int, col: Char) extends Piece(row, col) {
 
-  override def capture(): Boolean = ???
+  /** Any piece that can get killed by Bishop has an interesting property that
+    * it is equi distant on both cols and rows.
+    *
+    * @param piece
+    * @return
+    */
+  override def capture(piece: Piece): Boolean = {
+    piece match {
+      case rook: Rook =>
+        if (Math.abs(rook.col - col) == Math.abs(rook.row - row))
+          true
+        else
+          false
+      case _: Bishop =>
+        throw new IllegalArgumentException(
+          "Bishop's capture method takes only Rook as type input!!"
+        )
+    }
+  }
 
   override def toString: String = "Bishop"
 

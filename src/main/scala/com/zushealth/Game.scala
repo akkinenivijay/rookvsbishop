@@ -17,7 +17,7 @@ object Game extends App {
   Board.addPeice(bishop)
   Board.draw()
 
-  val rounds = 1 to 3
+  val rounds = 1 to 15
   breakable {
     for (iter <- rounds) {
       if (Board.isEmpty()) {
@@ -45,6 +45,13 @@ object Game extends App {
       }
       Board.addPeice(rook)
       Board.draw()
+      if (bishop.capture(rook)) {
+        printf("Bishop Captured Rook in iteration %s !! \n", iter)
+        break()
+      }
+      if (iter == 15) {
+        println("Rook survived 15 rounds !!!")
+      }
     }
   }
 }

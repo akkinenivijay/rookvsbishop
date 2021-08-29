@@ -25,13 +25,14 @@ object Board {
     * @param piece
     */
   def addPeice(piece: Piece) = {
+    // println(piece.row + " : " + piece.col)
     if (piece.col > 'h' | piece.col < 'a')
       throw new IllegalArgumentException(
         "col must be in the range of 'a' to 'h' "
       )
     if (piece.row < 1 | piece.row > 8)
       throw new IllegalArgumentException(
-        "row must be in the range of 1 to 8 "
+        "row must be in the range of 1 to 8 " + piece.row
       )
     state(piece.row - 1)(piece.col - 'a') = Some(piece)
   }
