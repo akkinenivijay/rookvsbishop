@@ -16,7 +16,7 @@ object Game extends App {
   var bishop = new Bishop(3, 'c')
   Board.addPeice(rook)
   Board.addPeice(bishop)
-  println(s"${GREEN} Initial state")
+  println(s"${GREEN}Initial state")
   Board.draw()
 
   val rounds = 1 to 15
