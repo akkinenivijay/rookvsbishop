@@ -44,7 +44,7 @@ class Rook(row: Int, col: Char) extends Piece(row, col) {
   }
 
   override def printPosition(): Unit = {
-    printf("Col: %s, Row: %s \n", col, row)
+    printf("Rook Col: %s, Row: %s ", col, row)
   }
 }
 
@@ -60,6 +60,6 @@ class Bishop(row: Int, col: Char) extends Piece(row, col) {
   override def toString: String = "Bishop"
 
   override def printPosition(): Unit = {
-    printf("Col: %s, Row: %s \n", col, row)
+    printf("Bishop Col: %s, Row: %s ", col, row)
   }
 }
