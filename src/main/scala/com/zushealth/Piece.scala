@@ -22,8 +22,8 @@ abstract class Piece(val row: Int, val col: Char) {
   */
 class Rook(row: Int, col: Char) extends Piece(row, col) {
 
-  /** Problem statement says both can rook can capture bishop but not very clear
-    * on the condition when that happens.
+  /** Problem statement says both rook and bishop can capture but not very clear
+    * on the condition when that happens. Leaving this unimplemented for now.
     *
     * @return
     */
