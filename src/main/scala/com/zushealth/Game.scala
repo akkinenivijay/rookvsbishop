@@ -8,9 +8,6 @@ object Game extends App {
   /** There's only one rook and bishop in this chess game, instantiating them
     * and assign to the initial board state of h1 and c3 respectively.
     *
-    * The type of rook is `var` instead of `val` as this variable keeps track of
-    * the current rook position rather than always asking the `Board` to fetch
-    * rook position.
     */
 
   val rook = new Rook(1, 'h')
