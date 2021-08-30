@@ -12,7 +12,6 @@ abstract class Piece(val row: Int, val col: Char) {
     * NotImplemented Error
     */
   def capture(piece: Piece): Boolean = ???
-  def printPosition(): Unit = ???
 }
 
 /** Class for Rook Type
@@ -50,10 +49,6 @@ class Rook(row: Int, col: Char) extends Piece(row, col) {
     val newCol = (((col - 'a' + numberOfMoves) % 8) + 'a').toChar
     new Rook(row, newCol)
   }
-
-  override def printPosition(): Unit = {
-    printf("Rook Col: %s, Row: %s ", col, row)
-  }
 }
 
 /** Class for Bishop Type
@@ -84,8 +79,4 @@ class Bishop(row: Int, col: Char) extends Piece(row, col) {
   }
 
   override def toString: String = "Bishop"
-
-  override def printPosition(): Unit = {
-    printf("Bishop Col: %s, Row: %s ", col, row)
-  }
 }

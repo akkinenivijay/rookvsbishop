@@ -34,9 +34,10 @@ object Game extends App {
       val numberOfMoves = Dice.roll()
       // Lets toss a coin as board is in a non empty state.
       val direction = Coin.toss()
-      board.rook.printPosition()
       printf(
-        "Round: %s Direction: %s NumberOfMoves: %s \n",
+        "Rook Col: %s, Row: %s, Round: %s Direction: %s NumberOfMoves: %s \n",
+        board.rook.row,
+        board.rook.col,
         iter + 1,
         direction.name,
         numberOfMoves
