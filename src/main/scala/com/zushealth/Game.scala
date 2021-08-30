@@ -17,7 +17,7 @@ object Game extends App {
   board.draw()
 
   @scala.annotation.tailrec
-  def recursiveGamePlay(
+  def play(
       rook: Rook,
       bishop: Bishop,
       board: Board,
@@ -49,11 +49,11 @@ object Game extends App {
       }
       val updatedBoard = new Board(newRook, bishop)
       updatedBoard.draw()
-      recursiveGamePlay(newRook, bishop, updatedBoard, iter + 1)
+      play(newRook, bishop, updatedBoard, iter + 1)
     }
   }
 
-  val endResult = recursiveGamePlay(rook, bishop, board, 0)
+  val endResult = play(rook, bishop, board, 0)
 
   println(endResult)
 }
