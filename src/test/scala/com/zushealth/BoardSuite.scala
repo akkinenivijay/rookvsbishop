@@ -1,70 +1,87 @@
 package com.zushealth
 
-class BoardSuite extends munit.FunSuite {
+import org.scalatest.funsuite.AnyFunSuite
+
+class BoardSuite extends AnyFunSuite {
 
   test("Board is empty upon intialization") {
-    val isEmpty = Board.isEmpty()
-    assertEquals(isEmpty, true)
+    val rook = new Rook(1, 'h')
+    val bishop = new Bishop(3, 'c')
+    val board = new Board(rook, bishop)
+    val isEmpty = board.isEmpty()
+    assert(isEmpty == false)
   }
 
   test("Add a Peice to Board") {
-    val x = Board.addPeice(new Rook(1, 'h'))
-    val addedPeice = Board.state(0)(7).get
-    assertEquals(addedPeice.row, x.get.row)
-    assertEquals(addedPeice.col, x.get.col)
+    val rook = new Rook(1, 'h')
+    val bishop = new Bishop(3, 'c')
+    val board = new Board(rook, bishop)
+    val addedPeice = board.elementAt(1, 'h')
+    assert(addedPeice.row == rook.row)
 
-    interceptMessage[java.lang.IllegalArgumentException](
-      "row must be in the range of 1 to 8"
-    ) {
-      Board.addPeice(new Rook(9, 'h'))
+    assertThrows[java.lang.IllegalArgumentException] {
+      val rook = new Rook(1, 'h')
+      val bishop = new Bishop(3, 'c')
+      val board = new Board(rook, bishop)
+      board.addPeice(new Rook(9, 'h'))
     }
 
-    interceptMessage[java.lang.IllegalArgumentException](
-      "row must be in the range of 1 to 8"
-    ) {
-      Board.addPeice(new Rook(-1, 'h'))
+    assertThrows[java.lang.IllegalArgumentException] {
+      val rook = new Rook(1, 'h')
+      val bishop = new Bishop(3, 'c')
+      val board = new Board(rook, bishop)
+      board.addPeice(new Rook(-1, 'h'))
     }
 
-    interceptMessage[java.lang.IllegalArgumentException](
-      "col must be in the range of 'a' to 'h'"
-    ) {
-      Board.addPeice(new Rook(3, 'i'))
+    assertThrows[java.lang.IllegalArgumentException] {
+      val rook = new Rook(1, 'h')
+      val bishop = new Bishop(3, 'c')
+      val board = new Board(rook, bishop)
+      board.addPeice(new Rook(3, 'i'))
     }
 
-    interceptMessage[java.lang.IllegalArgumentException](
-      "col must be in the range of 'a' to 'h'"
-    ) {
-      Board.addPeice(new Rook(3, 'A'))
+    assertThrows[java.lang.IllegalArgumentException] {
+      val rook = new Rook(1, 'h')
+      val bishop = new Bishop(3, 'c')
+      val board = new Board(rook, bishop)
+      board.addPeice(new Rook(3, 'A'))
     }
   }
 
   test("Remove a Peice from the Board") {
-    Board.removePeice(1, 'h')
-    val element = Board.state(0)(7)
-    assertEquals(element, None)
+    val rook = new Rook(1, 'h')
+    val bishop = new Bishop(3, 'c')
+    val board = new Board(rook, bishop)
+    board.removePeice(1, 'h')
+    val element = board.elementAt(1, 'h')
+    assert(element == null)
 
-    interceptMessage[java.lang.IllegalArgumentException](
-      "row must be in the range of 1 to 8"
-    ) {
-      Board.removePeice(9, 'h')
+    assertThrows[java.lang.IllegalArgumentException] {
+      val rook = new Rook(1, 'h')
+      val bishop = new Bishop(3, 'c')
+      val board = new Board(rook, bishop)
+      board.removePeice(9, 'h')
     }
 
-    interceptMessage[java.lang.IllegalArgumentException](
-      "row must be in the range of 1 to 8"
-    ) {
-      Board.removePeice(-1, 'h')
+    assertThrows[java.lang.IllegalArgumentException] {
+      val rook = new Rook(1, 'h')
+      val bishop = new Bishop(3, 'c')
+      val board = new Board(rook, bishop)
+      board.removePeice(-1, 'h')
     }
 
-    interceptMessage[java.lang.IllegalArgumentException](
-      "col must be in the range of 'a' to 'h'"
-    ) {
-      Board.removePeice(3, 'i')
+    assertThrows[java.lang.IllegalArgumentException] {
+      val rook = new Rook(1, 'h')
+      val bishop = new Bishop(3, 'c')
+      val board = new Board(rook, bishop)
+      board.removePeice(3, 'i')
     }
 
-    interceptMessage[java.lang.IllegalArgumentException](
-      "col must be in the range of 'a' to 'h'"
-    ) {
-      Board.removePeice(3, 'A')
+    assertThrows[java.lang.IllegalArgumentException] {
+      val rook = new Rook(1, 'h')
+      val bishop = new Bishop(3, 'c')
+      val board = new Board(rook, bishop)
+      board.removePeice(3, 'A')
     }
   }
 }

@@ -12,48 +12,50 @@ object Game extends App {
     * the current rook position rather than always asking the `Board` to fetch
     * rook position.
     */
-  var rook = new Rook(1, 'h')
-  var bishop = new Bishop(3, 'c')
-  Board.addPeice(rook)
-  Board.addPeice(bishop)
-  println(s"${GREEN}Initial state")
-  Board.draw()
 
-  val rounds = 1 to 15
-  breakable {
-    for (iter <- rounds) {
-      if (Board.isEmpty()) {
-        Console.err.println("Invalid State of board being empty!")
-        break()
-      }
+  val rook = new Rook(1, 'h')
+  val bishop = new Bishop(3, 'c')
+  val board = new Board(rook, bishop)
+  println(s"${GREEN}Initial state")
+  board.draw()
+
+  @scala.annotation.tailrec
+  def recursiveGamePlay(
+      rook: Rook,
+      bishop: Bishop,
+      board: Board,
+      iter: Int
+  ): String = {
+    if (iter == 15) {
+      "Rook survived 15 rounds !!!"
+    } else if (bishop.capture(rook)) {
+      s"Bishop Captured Rook in iteration ${iter} !!"
+    } else {
       val numberOfMoves = Dice.roll()
       // Lets toss a coin as board is in a non empty state.
       val direction = Coin.toss()
-      rook.printPosition()
+      board.rook.printPosition()
       printf(
         "Round: %s Direction: %s NumberOfMoves: %s \n",
-        iter,
+        iter + 1,
         direction.name,
         numberOfMoves
       )
-      Board.removePeice(rook.row, rook.col)
-      direction match {
+      val newRook = direction match {
         case Symbol("Heads") => {
-          rook = rook.moveUp(numberOfMoves)
+          board.rook.moveUp(numberOfMoves)
         }
         case Symbol("Tails") => {
-          rook = rook.moveRight(numberOfMoves)
+          board.rook.moveRight(numberOfMoves)
         }
       }
-      Board.addPeice(rook)
-      Board.draw()
-      if (bishop.capture(rook)) {
-        printf("Bishop Captured Rook in iteration %s !! \n", iter)
-        break()
-      }
-      if (iter == 15) {
-        println("Rook survived 15 rounds !!!")
-      }
+      val updatedBoard = new Board(newRook, bishop)
+      updatedBoard.draw()
+      recursiveGamePlay(newRook, bishop, updatedBoard, iter + 1)
     }
   }
+
+  val endResult = recursiveGamePlay(rook, bishop, board, 0)
+
+  println(endResult)
 }
