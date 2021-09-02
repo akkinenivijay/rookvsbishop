@@ -7,16 +7,14 @@ class Board(val rook: Rook, val bishop: Bishop) {
   val rowCount, colCount = 8
   private val state = Array.ofDim[Piece](rowCount, colCount)
 
-  addPeice(rook)
-  addPeice(bishop)
+  addPiece(rook)
+  addPiece(bishop)
 
   /** Adds an object of Type `Piece` at the given coordinates.
     *
-    * @param col
-    * @param row
     * @param piece
     */
-  def addPeice(piece: Piece) = {
+  def addPiece(piece: Piece) = {
     // println(piece.row + " : " + piece.col)
     if (piece.col > 'h' | piece.col < 'a')
       throw new IllegalArgumentException(
@@ -29,8 +27,7 @@ class Board(val rook: Rook, val bishop: Bishop) {
     state(piece.row - 1)(piece.col - 'a') = piece
   }
 
-  /**
-    * Gets element at coordinate.
+  /** Gets element at coordinate.
     *
     * @param row
     * @param col

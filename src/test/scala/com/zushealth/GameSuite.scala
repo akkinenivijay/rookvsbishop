@@ -1,16 +1,17 @@
 package com.zushealth
 
+import org.mockito.MockitoSugar.{mock, when}
 import org.scalatest.funsuite.AnyFunSuite
 
 class GameSuite extends AnyFunSuite {
+
   test("Game Play") {
-    val rook = new Rook(1, 'h')
-    val bishop = new Bishop(3, 'c')
-    val board = new Board(rook, bishop)
-    val endResult = Game.play(rook, bishop, board, 0)
-    assert(
-      endResult.contains("Bishop Captured Rook in iteration") || endResult
-        .contains("Rook survived 15 rounds !!!")
-    )
+
+    val utils: Utils = mock[Utils]
+    when(utils.tossAndRoll()).thenReturn((Symbol("Heads"), 7))
+    val game: Game = new Game(utils)
+    val endResult: String = game.play()
+
+    assert(endResult.contains("Bishop Captured Rook in iteration"))
   }
 }

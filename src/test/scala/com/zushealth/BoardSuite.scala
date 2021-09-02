@@ -4,7 +4,7 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class BoardSuite extends AnyFunSuite {
 
-  test("Board is empty upon intialization") {
+  test("Board is empty upon initialization") {
     val rook = new Rook(1, 'h')
     val bishop = new Bishop(3, 'c')
     val board = new Board(rook, bishop)
@@ -23,32 +23,32 @@ class BoardSuite extends AnyFunSuite {
       val rook = new Rook(1, 'h')
       val bishop = new Bishop(3, 'c')
       val board = new Board(rook, bishop)
-      board.addPeice(new Rook(9, 'h'))
+      board.addPiece(new Rook(9, 'h'))
     }
 
     assertThrows[java.lang.IllegalArgumentException] {
       val rook = new Rook(1, 'h')
       val bishop = new Bishop(3, 'c')
       val board = new Board(rook, bishop)
-      board.addPeice(new Rook(-1, 'h'))
+      board.addPiece(new Rook(-1, 'h'))
     }
 
     assertThrows[java.lang.IllegalArgumentException] {
       val rook = new Rook(1, 'h')
       val bishop = new Bishop(3, 'c')
       val board = new Board(rook, bishop)
-      board.addPeice(new Rook(3, 'i'))
+      board.addPiece(new Rook(3, 'i'))
     }
 
     assertThrows[java.lang.IllegalArgumentException] {
       val rook = new Rook(1, 'h')
       val bishop = new Bishop(3, 'c')
       val board = new Board(rook, bishop)
-      board.addPeice(new Rook(3, 'A'))
+      board.addPiece(new Rook(3, 'A'))
     }
   }
 
-  test("Remove a Peice from the Board") {
+  test("Remove a Piece from the Board") {
     val rook = new Rook(1, 'h')
     val bishop = new Bishop(3, 'c')
     val board = new Board(rook, bishop)

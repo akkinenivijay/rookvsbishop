@@ -9,7 +9,9 @@ lazy val root = (project in file("."))
   .settings(
     name := "RookVsBishop",
     libraryDependencies += scalaTest % Test,
-    libraryDependencies += "org.scalatest" %% "scalatest-funsuite" % "3.2.9" % "test",
-    // libraryDependencies += "org.scalameta" %% "munit" % "0.7.28" % Test,
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.9" % Test,
+    libraryDependencies += "org.scalatest" %% "scalatest-flatspec" % "3.2.9" % Test,
+    libraryDependencies += "org.scalatest" %% "scalatest-funsuite" % "3.2.9" % Test,
+    libraryDependencies += "org.mockito" % "mockito-scala-scalatest_2.13" % "1.16.39" % Test,
     scalacOptions ++= Seq("-deprecation", "-feature")
   )
