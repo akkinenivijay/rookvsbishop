@@ -6,3 +6,21 @@ import com.zushealth.Game
 
 val game = new Game(new Utils())
 val endResult: String = game.play()
+
+def testMethod(func: Int => Int, input: Int): Int = {
+  func(input)
+}
+
+val square: Int => Int = i => i + i
+
+testMethod(square, 2)
+
+testMethod(i => (i + i), 2)
+
+def increment(i: Int) = {
+  i + 1
+}
+
+testMethod(increment, 7)
+
+testMethod(_ + 5, 8)
