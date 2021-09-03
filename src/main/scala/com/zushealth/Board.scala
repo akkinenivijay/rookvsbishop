@@ -13,8 +13,9 @@ class Board(val rook: Rook, val bishop: Bishop) {
   /** Adds an object of Type `Piece` at the given coordinates.
     *
     * @param piece
+    *   a chess piee
     */
-  def addPiece(piece: Piece) = {
+  def addPiece(piece: Piece): Unit = {
     // println(piece.row + " : " + piece.col)
     if (piece.col > 'h' | piece.col < 'a')
       throw new IllegalArgumentException(
@@ -30,10 +31,12 @@ class Board(val rook: Rook, val bishop: Bishop) {
   /** Gets element at coordinate.
     *
     * @param row
+    *   row
     * @param col
+    *   column
     * @return
     */
-  def elementAt(row: Int, col: Char) = {
+  def elementAt(row: Int, col: Char): Piece = {
     state(row - 1)(col - 'a')
   }
 
@@ -41,10 +44,11 @@ class Board(val rook: Rook, val bishop: Bishop) {
     * this with recursion.
     *
     * @param col
+    *   column
     * @param row
-    * @param piece
+    *   row
     */
-  def removePeice(row: Int, col: Char) = {
+  def removePiece(row: Int, col: Char): Unit = {
     if (col > 'h' | col < 'a')
       throw new IllegalArgumentException(
         "col must be in the range of 'a' to 'h'"
@@ -63,11 +67,11 @@ class Board(val rook: Rook, val bishop: Bishop) {
     *
     * @return
     */
-  def isEmpty(): Boolean = {
+  def isEmpty: Boolean = {
     var empty = true
     breakable {
       for (row <- 8 to 1 by -1) {
-        val rowEmpty = state(row - 1).forall(_ == null)
+        val rowEmpty = state(row - 1).exists(_ != null)
         if (!rowEmpty) {
           empty = false
           break()
@@ -80,7 +84,7 @@ class Board(val rook: Rook, val bishop: Bishop) {
   /** Renders the current state of the board. Weird printf below is padding
     * position+piece+whitespaces to a fixed length 10 chars.
     */
-  def draw() = {
+  def draw(): Unit = {
     for (row <- 8 to 1 by -1) {
       for (col <- 'a' to 'h') {
         val position: String = col.toString + row.toString

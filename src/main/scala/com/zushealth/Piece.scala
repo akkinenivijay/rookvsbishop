@@ -3,7 +3,9 @@ package com.zushealth
 /** Abstract class of Piece type.
   *
   * @param row
+  *   row
   * @param col
+  *   column
   */
 abstract class Piece(val row: Int, val col: Char) {
 
@@ -17,7 +19,9 @@ abstract class Piece(val row: Int, val col: Char) {
 /** Class for Rook Type
   *
   * @param row
+  *   row
   * @param col
+  *   column
   */
 class Rook(row: Int, col: Char) extends Piece(row, col) {
 
@@ -34,6 +38,7 @@ class Rook(row: Int, col: Char) extends Piece(row, col) {
     * so that we are handling overflow of indices properly
     *
     * @param numberOfMoves
+    *   number of steps to be made
     * @return
     */
   def moveUp(numberOfMoves: Int): Rook = {
@@ -45,7 +50,6 @@ class Rook(row: Int, col: Char) extends Piece(row, col) {
   }
 
   def moveRight(numberOfMoves: Int): Rook = {
-    val diff = col - 'a'
     val newCol = (((col - 'a' + numberOfMoves) % 8) + 'a').toChar
     new Rook(row, newCol)
   }
@@ -54,14 +58,17 @@ class Rook(row: Int, col: Char) extends Piece(row, col) {
 /** Class for Bishop Type
   *
   * @param row
+  *   row
   * @param col
+  *   col
   */
 class Bishop(row: Int, col: Char) extends Piece(row, col) {
 
   /** Any piece that can get killed by Bishop has an interesting property that
-    * it is equi distant on both cols and rows.
+    * it is equal distant on both cols and rows.
     *
     * @param piece
+    *   piece
     * @return
     */
   override def capture(piece: Piece): Boolean = {
@@ -71,7 +78,7 @@ class Bishop(row: Int, col: Char) extends Piece(row, col) {
           true
         else
           false
-      case bishop: Bishop =>
+      case _: Bishop =>
         throw new IllegalArgumentException(
           "Bishop's capture method takes only Rook as type input!!"
         )

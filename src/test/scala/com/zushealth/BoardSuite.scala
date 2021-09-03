@@ -8,8 +8,8 @@ class BoardSuite extends AnyFunSuite {
     val rook = new Rook(1, 'h')
     val bishop = new Bishop(3, 'c')
     val board = new Board(rook, bishop)
-    val isEmpty = board.isEmpty()
-    assert(isEmpty == false)
+    val isEmpty = board.isEmpty
+    assert(!isEmpty)
   }
 
   test("Add a Peice to Board") {
@@ -52,7 +52,7 @@ class BoardSuite extends AnyFunSuite {
     val rook = new Rook(1, 'h')
     val bishop = new Bishop(3, 'c')
     val board = new Board(rook, bishop)
-    board.removePeice(1, 'h')
+    board.removePiece(1, 'h')
     val element = board.elementAt(1, 'h')
     assert(element == null)
 
@@ -60,28 +60,28 @@ class BoardSuite extends AnyFunSuite {
       val rook = new Rook(1, 'h')
       val bishop = new Bishop(3, 'c')
       val board = new Board(rook, bishop)
-      board.removePeice(9, 'h')
+      board.removePiece(9, 'h')
     }
 
     assertThrows[java.lang.IllegalArgumentException] {
       val rook = new Rook(1, 'h')
       val bishop = new Bishop(3, 'c')
       val board = new Board(rook, bishop)
-      board.removePeice(-1, 'h')
+      board.removePiece(-1, 'h')
     }
 
     assertThrows[java.lang.IllegalArgumentException] {
       val rook = new Rook(1, 'h')
       val bishop = new Bishop(3, 'c')
       val board = new Board(rook, bishop)
-      board.removePeice(3, 'i')
+      board.removePiece(3, 'i')
     }
 
     assertThrows[java.lang.IllegalArgumentException] {
       val rook = new Rook(1, 'h')
       val bishop = new Bishop(3, 'c')
       val board = new Board(rook, bishop)
-      board.removePeice(3, 'A')
+      board.removePiece(3, 'A')
     }
   }
 }
