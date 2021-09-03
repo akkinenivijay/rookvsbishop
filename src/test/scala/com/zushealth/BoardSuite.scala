@@ -17,7 +17,7 @@ class BoardSuite extends AnyFunSuite {
     val bishop = new Bishop(3, 'c')
     val board = new Board(rook, bishop)
     val addedPeice = board.elementAt(1, 'h')
-    assert(addedPeice.row == rook.row)
+    assert(addedPeice.row() == rook.row())
 
     assertThrows[java.lang.IllegalArgumentException] {
       val rook = new Rook(1, 'h')

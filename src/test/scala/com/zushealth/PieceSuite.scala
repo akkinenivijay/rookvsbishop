@@ -6,25 +6,25 @@ class PieceSuite extends AnyFunSuite {
   test("Rook move up") {
     val rook = new Rook(1, 'h')
     val newRook = rook.moveUp(7)
-    assert(newRook.row == 8)
+    assert(newRook.row() == 8)
   }
 
   test("Rook move up overflow") {
     val rook = new Rook(1, 'h')
     val newRook = rook.moveUp(9)
-    assert(newRook.row == 2)
+    assert(newRook.row() == 2)
   }
 
   test("Rook move right") {
     val rook = new Rook(1, 'h')
     val newRook = rook.moveRight(8)
-    assert(newRook.col == 'h')
+    assert(newRook.col() == 'h')
   }
 
   test("Bishop can capture Rook if it is located diagonally in its path") {
     val rook = new Rook(2, 'b')
     val bishop = new Bishop(3, 'c')
-    assert(bishop.capture(rook) == true)
+    assert(bishop.capture(rook))
   }
 
   test(
@@ -32,7 +32,7 @@ class PieceSuite extends AnyFunSuite {
   ) {
     val rook = new Rook(1, 'h')
     val bishop = new Bishop(3, 'c')
-    assert(bishop.capture(rook) == false)
+    assert(!bishop.capture(rook))
   }
 
   test(

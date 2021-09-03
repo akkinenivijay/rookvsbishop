@@ -19,8 +19,8 @@ class Game(val util: Utils) {
       val (direction, numberOfMoves) = util.tossAndRoll()
       printf(
         "Rook Col: %s, Row: %s, Round: %s Direction: %s NumberOfMoves: %s \n",
-        board.rook.row,
-        board.rook.col,
+        board.rook.row(),
+        board.rook.col(),
         iteration + 1,
         direction.name,
         numberOfMoves

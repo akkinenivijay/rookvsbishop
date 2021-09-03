@@ -1,19 +1,16 @@
 package com.zushealth
 
 /** Abstract class of Piece type.
-  *
-  * @param row
-  *   row
-  * @param col
-  *   column
   */
-abstract class Piece(val row: Int, val col: Char) {
+trait Piece {
 
   /** ??? is a language feature to hint that the method is not implemented.
     * Subtypes extending Peice should implement this method or else it throws a
     * NotImplemented Error
     */
   def capture(piece: Piece): Boolean = ???
+  def row(): Int
+  def col(): Char
 }
 
 /** Class for Rook Type
@@ -23,7 +20,7 @@ abstract class Piece(val row: Int, val col: Char) {
   * @param col
   *   column
   */
-class Rook(row: Int, col: Char) extends Piece(row, col) {
+class Rook(row: Int, col: Char) extends Piece {
 
   /** Problem statement says both rook and bishop can capture but not very clear
     * on the condition when that happens. Leaving this unimplemented for now.
@@ -31,6 +28,10 @@ class Rook(row: Int, col: Char) extends Piece(row, col) {
     * @return
     */
   override def capture(piece: Piece): Boolean = ???
+
+  override def row(): Int = row
+
+  override def col(): Char = col
 
   override def toString: String = "Rook"
 
@@ -62,7 +63,7 @@ class Rook(row: Int, col: Char) extends Piece(row, col) {
   * @param col
   *   col
   */
-class Bishop(row: Int, col: Char) extends Piece(row, col) {
+class Bishop(row: Int, col: Char) extends Piece {
 
   /** Any piece that can get killed by Bishop has an interesting property that
     * it is equal distant on both cols and rows.
@@ -74,7 +75,7 @@ class Bishop(row: Int, col: Char) extends Piece(row, col) {
   override def capture(piece: Piece): Boolean = {
     piece match {
       case rook: Rook =>
-        if (Math.abs(rook.col - col) == Math.abs(rook.row - row))
+        if (Math.abs(rook.col() - col) == Math.abs(rook.row() - row))
           true
         else
           false
@@ -86,4 +87,8 @@ class Bishop(row: Int, col: Char) extends Piece(row, col) {
   }
 
   override def toString: String = "Bishop"
+
+  override def row(): Int = row
+
+  override def col(): Char = col
 }

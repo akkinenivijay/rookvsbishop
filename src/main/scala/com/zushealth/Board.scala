@@ -17,15 +17,15 @@ class Board(val rook: Rook, val bishop: Bishop) {
     */
   def addPiece(piece: Piece): Unit = {
     // println(piece.row + " : " + piece.col)
-    if (piece.col > 'h' | piece.col < 'a')
+    if (piece.col() > 'h' | piece.col() < 'a')
       throw new IllegalArgumentException(
         "col must be in the range of 'a' to 'h'"
       )
-    if (piece.row < 1 | piece.row > 8)
+    if (piece.row() < 1 | piece.row() > 8)
       throw new IllegalArgumentException(
         "row must be in the range of 1 to 8"
       )
-    state(piece.row - 1)(piece.col - 'a') = piece
+    state(piece.row() - 1)(piece.col() - 'a') = piece
   }
 
   /** Gets element at coordinate.
