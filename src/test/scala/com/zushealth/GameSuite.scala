@@ -1,4 +1,4 @@
-package com.zushealth
+package com.akkineni
 
 import org.mockito.MockitoSugar.{mock, when}
 import org.scalatest.funsuite.AnyFunSuite

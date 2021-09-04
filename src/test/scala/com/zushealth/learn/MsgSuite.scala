@@ -1,4 +1,4 @@
-package com.zushealth.learn
+package com.akkineni.learn
 
 import org.scalatest.funsuite.AnyFunSuite
 
