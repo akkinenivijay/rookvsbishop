@@ -3,7 +3,8 @@ import Dependencies._
 ThisBuild / scalaVersion := "2.13.6"
 ThisBuild / version := "0.2.0"
 ThisBuild / organization := "com.akkineni"
-ThisBuild / organizationName := "akkineni"
+ThisBuild / organizationName := "Akkineni Inc"
+ThisBuild / organizationHomepage := Some(url("https://akkineni.org"))
 
 lazy val root = (project in file("."))
   .settings(
