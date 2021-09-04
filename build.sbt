@@ -1,9 +1,9 @@
 import Dependencies._
 
 ThisBuild / scalaVersion := "2.13.6"
-ThisBuild / version := "0.1.0"
-ThisBuild / organization := "com.zushealth"
-ThisBuild / organizationName := "zushealth"
+ThisBuild / version := "0.2.0"
+ThisBuild / organization := "com.akkineni"
+ThisBuild / organizationName := "akkineni"
 
 lazy val root = (project in file("."))
   .settings(
@@ -21,7 +21,6 @@ lazy val root = (project in file("."))
       "-language:higherKinds",
       "-language:existentials",
       "-language:postfixOps",
-      "-encoding utf8",
       "-Xfatal-warnings"
     )
   )
