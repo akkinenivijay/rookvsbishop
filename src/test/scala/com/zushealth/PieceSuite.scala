@@ -36,7 +36,7 @@ class PieceSuite extends AnyFunSuite {
   }
 
   test(
-    "Bishop capture method cannot accept a Type of Rook"
+    "Bishop capture method cannot accept a Type of Bishop"
   ) {
     assertThrows[java.lang.IllegalArgumentException] {
       val bishop1 = new Bishop(4, 'd')
