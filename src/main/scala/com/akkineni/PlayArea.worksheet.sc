@@ -29,3 +29,9 @@ t.tail
 
 val util = Utils(Random)
 util.generate15Moves()
+
+Array(1, 2, 3, 4, 5, 6, 7, 8).exists(i => i % 2 == 0 && i > 4)
+
+Array(1, 2, 3, 4, 5, 6, 7).foldLeft(0)((x, y) => x + y)
+
+val grouped = Array(1, 2, 3, 4, 5, 6, 7).groupBy(_ % 3)

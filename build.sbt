@@ -1,7 +1,7 @@
 import Dependencies._
 
 ThisBuild / scalaVersion := "2.13.6"
-ThisBuild / version := "0.4.0"
+ThisBuild / version := "0.5.0-SNAPSHOT"
 ThisBuild / organization := "com.akkineni"
 ThisBuild / organizationName := "Akkineni Inc"
 ThisBuild / organizationHomepage := Some(url("https://akkineni.org"))
