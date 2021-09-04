@@ -1,0 +1,145 @@
+Initial state
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1        e1        f1        g1        h1 Rook
+Round: 1 Direction: Tails NumberOfMoves: 7
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1        e1        f1        g1 Rook   h1
+Round: 2 Direction: Tails NumberOfMoves: 7
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1        e1        f1 Rook   g1        h1
+Round: 3 Direction: Tails NumberOfMoves: 12
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1 Rook   c1        d1        e1        f1        g1        h1
+Round: 4 Direction: Tails NumberOfMoves: 8
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1 Rook   c1        d1        e1        f1        g1        h1
+Round: 5 Direction: Tails NumberOfMoves: 10
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1 Rook   e1        f1        g1        h1
+Round: 6 Direction: Tails NumberOfMoves: 7
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1 Rook   d1        e1        f1        g1        h1
+Round: 7 Direction: Tails NumberOfMoves: 5
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1        e1        f1        g1        h1 Rook
+Round: 8 Direction: Heads NumberOfMoves: 8
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1        e1        f1        g1        h1 Rook
+Round: 9 Direction: Heads NumberOfMoves: 6
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7 Rook
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1        e1        f1        g1        h1
+Round: 10 Direction: Heads NumberOfMoves: 10
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1        e1        f1        g1        h1 Rook
+Round: 11 Direction: Heads NumberOfMoves: 9
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2 Rook
+a1        b1        c1        d1        e1        f1        g1        h1
+Round: 12 Direction: Heads NumberOfMoves: 11
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5 Rook
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1        e1        f1        g1        h1
+Round: 13 Direction: Heads NumberOfMoves: 6
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3 Rook
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1        e1        f1        g1        h1
+Round: 14 Direction: Tails NumberOfMoves: 9
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6        b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3 Rook   b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1        e1        f1        g1        h1
+Round: 15 Direction: Heads NumberOfMoves: 11
+a8        b8        c8        d8        e8        f8        g8        h8
+a7        b7        c7        d7        e7        f7        g7        h7
+a6 Rook   b6        c6        d6        e6        f6        g6        h6
+a5        b5        c5        d5        e5        f5        g5        h5
+a4        b4        c4        d4        e4        f4        g4        h4
+a3        b3        c3 Bishop d3        e3        f3        g3        h3
+a2        b2        c2        d2        e2        f2        g2        h2
+a1        b1        c1        d1        e1        f1        g1        h1
+Rook survived 15 rounds !!!

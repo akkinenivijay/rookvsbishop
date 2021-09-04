@@ -5,13 +5,13 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class GameSuite extends AnyFunSuite {
 
-  test("Game Play") {
+  test("Bishop should capture after iteration 1") {
 
     val utils: Utils = mock[Utils]
     when(utils.tossAndRoll()).thenReturn((Symbol("Heads"), 7))
     val game: Game = new Game(utils)
     val endResult: String = game.play()
 
-    assert(endResult.contains("Bishop Captured Rook in iteration"))
+    assert(endResult == "Bishop Captured Rook in iteration 1 !!")
   }
 }

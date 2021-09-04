@@ -2,13 +2,10 @@ package com.akkineni
 
 import scala.util.control.Breaks._
 
-class Board(val rook: Rook, val bishop: Bishop) {
+class Board() {
 
-  val rowCount, colCount = 8
-  private val state = Array.ofDim[Piece](rowCount, colCount)
-
-  addPiece(rook)
-  addPiece(bishop)
+  private val rowCount, colCount = 8
+  val state = Array.ofDim[Piece](rowCount, colCount)
 
   /** Adds an object of Type `Piece` at the given coordinates.
     *
@@ -16,16 +13,90 @@ class Board(val rook: Rook, val bishop: Bishop) {
     *   a chess piee
     */
   def addPiece(piece: Piece): Unit = {
-    // println(piece.row + " : " + piece.col)
-    if (piece.col() > 'h' | piece.col() < 'a')
-      throw new IllegalArgumentException(
-        "col must be in the range of 'a' to 'h'"
-      )
-    if (piece.row() < 1 | piece.row() > 8)
-      throw new IllegalArgumentException(
-        "row must be in the range of 1 to 8"
-      )
     state(piece.row() - 1)(piece.col() - 'a') = piece
+  }
+
+  /** Removes an object of Type `Piece` at the given coordinates. We may not use
+    * this with recursion.
+    *
+    * @param piece
+    *   a piece could be a rook or bishop
+    */
+  def removePiece(piece: Piece): Unit = {
+    state(piece.row() - 1)(piece.col() - 'a') = null
+  }
+
+  /** Finds the current position of the rook and returns the rook piece.
+    *
+    * @return
+    */
+  def findRook: Rook = {
+    var rook: Piece = null
+    breakable {
+      for (row <- 1 to 8) {
+        val rookInRow = state(row - 1).find(
+          _ match {
+            case _: Rook => true
+            case _       => false
+          }
+        )
+        rookInRow match {
+          case Some(x) => {
+            rook = x
+            break()
+          }
+          case None =>
+        }
+      }
+    }
+    rook.asInstanceOf[Rook]
+  }
+
+  /** Finds the current position of the bishop and returns the bishop piece.
+    *
+    * @return
+    */
+  def findBishop: Bishop = {
+    var bishop: Piece = null
+    breakable {
+      for (row <- 1 to 8) {
+        val bishopInRow = state(row - 1).find(
+          _ match {
+            case _: Bishop => true
+            case _       => false
+          }
+        )
+        bishopInRow match {
+          case Some(x) => {
+            bishop = x
+            break()
+          }
+          case None =>
+        }
+      }
+    }
+    bishop.asInstanceOf[Bishop]
+  }
+
+  /** Checks if the board is empty. This method applies a lambda function (_ !=
+    * Null) to check if the row is empty and breaks out of loop if any row has
+    * values other than None. This method is not needed for our problem but
+    * makes a good utility function to check emptiness in case of errros.
+    *
+    * @return
+    */
+  def isEmpty: Boolean = {
+    var empty = true
+    breakable {
+      for (row <- 1 to 8) {
+        val pieceFound = state(row - 1).exists(_ != null)
+        if (pieceFound) {
+          empty = false
+          break()
+        }
+      }
+    }
+    empty
   }
 
   /** Gets element at coordinate.
@@ -38,47 +109,6 @@ class Board(val rook: Rook, val bishop: Bishop) {
     */
   def elementAt(row: Int, col: Char): Piece = {
     state(row - 1)(col - 'a')
-  }
-
-  /** Removes an object of Type `Piece` at the given coordinates. We may not use
-    * this with recursion.
-    *
-    * @param col
-    *   column
-    * @param row
-    *   row
-    */
-  def removePiece(row: Int, col: Char): Unit = {
-    if (col > 'h' | col < 'a')
-      throw new IllegalArgumentException(
-        "col must be in the range of 'a' to 'h'"
-      )
-    if (row < 1 | row > 8)
-      throw new IllegalArgumentException(
-        "row must be in the range of 1 to 8"
-      )
-    state(row - 1)(col - 'a') = null
-  }
-
-  /** Checks if the board is empty. This method applies a lambda function
-    * _==None to check if the row is empty and breaks out of loop if any row has
-    * values other than None. This method is not needed for our problem but
-    * makes a good utility function to check emptiness in case of errros.
-    *
-    * @return
-    */
-  def isEmpty: Boolean = {
-    var empty = true
-    breakable {
-      for (row <- 8 to 1 by -1) {
-        val rowEmpty = state(row - 1).exists(_ != null)
-        if (!rowEmpty) {
-          empty = false
-          break()
-        }
-      }
-    }
-    empty
   }
 
   /** Renders the current state of the board. Weird printf below is padding
@@ -99,5 +129,20 @@ class Board(val rook: Rook, val bishop: Bishop) {
       }
       println()
     }
+  }
+}
+
+object Board {
+  def apply(): Board = {
+    val b = new Board()
+    b
+  }
+
+  def apply(pieces: Piece*): Board = {
+    val b = new Board()
+    for (piece <- pieces) {
+      b.addPiece(piece)
+    }
+    b
   }
 }

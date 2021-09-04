@@ -52,4 +52,22 @@ class PieceSuite extends AnyFunSuite {
       rook.capture(bishop)
     }
   }
+
+  test("Piece row and col bounds") {
+    assertThrows[java.lang.IllegalArgumentException] {
+      new Rook(9, 'h')
+    }
+
+    assertThrows[java.lang.IllegalArgumentException] {
+      new Rook(-1, 'h')
+    }
+
+    assertThrows[java.lang.IllegalArgumentException] {
+      new Rook(3, 'i')
+    }
+
+    assertThrows[java.lang.IllegalArgumentException] {
+      new Rook(3, 'A')
+    }
+  }
 }

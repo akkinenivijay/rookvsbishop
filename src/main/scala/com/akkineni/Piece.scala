@@ -2,15 +2,21 @@ package com.akkineni
 
 /** Abstract class of Piece type.
   */
-trait Piece {
+abstract class Piece(row: Int, col: Char) {
+
+  // Row and Column range validation.
+  if (col > 'h' | col < 'a')
+    throw new IllegalArgumentException("col must be in the range of 'a' to 'h'")
+  if (row < 1 | row > 8)
+    throw new IllegalArgumentException("row must be in the range of 1 to 8")
 
   /** ??? is a language feature to hint that the method is not implemented.
     * Subtypes extending Peice should implement this method or else it throws a
     * NotImplemented Error
     */
   def capture(piece: Piece): Boolean = ???
-  def row(): Int
-  def col(): Char
+  def row(): Int = row
+  def col(): Char = col
 }
 
 /** Class for Rook Type
@@ -20,7 +26,7 @@ trait Piece {
   * @param col
   *   column
   */
-class Rook(row: Int, col: Char) extends Piece {
+class Rook(row: Int, col: Char) extends Piece(row: Int, col: Char) {
 
   /** Problem statement says both rook and bishop can capture but not very clear
     * on the condition when that happens. Leaving this unimplemented for now.
@@ -28,10 +34,6 @@ class Rook(row: Int, col: Char) extends Piece {
     * @return
     */
   override def capture(piece: Piece): Boolean = ???
-
-  override def row(): Int = row
-
-  override def col(): Char = col
 
   override def toString: String = "Rook"
 
@@ -63,7 +65,7 @@ class Rook(row: Int, col: Char) extends Piece {
   * @param col
   *   col
   */
-class Bishop(row: Int, col: Char) extends Piece {
+class Bishop(row: Int, col: Char) extends Piece(row: Int, col: Char) {
 
   /** Any piece that can get killed by Bishop has an interesting property that
     * it is equal distant on both cols and rows.
@@ -87,8 +89,4 @@ class Bishop(row: Int, col: Char) extends Piece {
   }
 
   override def toString: String = "Bishop"
-
-  override def row(): Int = row
-
-  override def col(): Char = col
 }
