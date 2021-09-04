@@ -1,3 +1,5 @@
+import scala.util.Random
+import com.akkineni.Utils
 import com.akkineni.Rook
 import com.akkineni.Piece
 import scala.util.control.Breaks._
@@ -16,3 +18,14 @@ breakable {
   }
 }
 empty
+
+val a = List(13, 17, 99, 54)
+a.head
+a.tail
+
+val t = Array(1, 2, 3)
+t.head
+t.tail
+
+val util = Utils(Random)
+util.generate15Moves()

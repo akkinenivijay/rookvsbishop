@@ -7,16 +7,17 @@ class Game(val util: Utils) {
   @scala.annotation.tailrec
   private final def loop(
       board: Board,
-      iteration: Int
+      iteration: Int,
+      moves: Array[(Symbol, Int)]
   ): String = {
     val rook = board.findRook
     val bishop = board.findBishop
     if (iteration == 15) {
-      "Rook survived 15 rounds !!!"
+      "Rook survived 15 rounds !!"
     } else if (bishop.capture(rook))
       s"Bishop Captured Rook in iteration $iteration !!"
     else {
-      val (direction, numberOfMoves) = util.tossAndRoll()
+      val (direction, numberOfMoves) = moves.head
       printf(
         "Round: %s Direction: %s NumberOfMoves: %s \n",
         iteration + 1,
@@ -32,7 +33,7 @@ class Game(val util: Utils) {
       board.removePiece(rook)
       board.addPiece(newRook)
       board.draw()
-      loop(board, iteration + 1)
+      loop(board, iteration + 1, moves.tail)
     }
   }
 
@@ -47,6 +48,6 @@ class Game(val util: Utils) {
     println(s"${GREEN}Initial state")
     board.draw()
 
-    loop(board, 0)
+    loop(board, 0, util.generate15Moves())
   }
 }
