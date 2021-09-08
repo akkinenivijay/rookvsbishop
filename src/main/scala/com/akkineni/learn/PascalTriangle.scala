@@ -11,7 +11,7 @@ object PascalTriangle {
     * @param numberOfRows
     * @return
     */
-  def generate1(numberOfRows: Int) = {
+  def generate(numberOfRows: Int): Array[Array[Int]] = {
 
     val tree: Array[Array[Int]] =
       Array.tabulate(numberOfRows)(n => Array.ofDim[Int](n + 1))
