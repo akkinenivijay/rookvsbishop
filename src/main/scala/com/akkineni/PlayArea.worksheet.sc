@@ -1,4 +1,6 @@
+import scala.annotation.tailrec
 import com.akkineni.learn.Fibonnaci
+import com.akkineni.learn.PascalTriangle
 import scala.util.Random
 import com.akkineni.Utils
 import com.akkineni.Rook
@@ -47,3 +49,37 @@ val s1 = (1 +: (2 +: (3 +: (4 +: (5 +: Nil)))))
 val l = (1 :: (2 :: (3 :: (4 :: (5 :: Nil)))))
 
 val f = Fibonnaci.generate(5)
+
+Array.ofDim[Int](2)
+
+0 until 2
+
+def pascal(numberOfRows: Int) = {
+
+  val tree: Array[Array[Int]] =
+    Array.tabulate(numberOfRows)(n => Array.ofDim[Int](n + 1))
+  tree(0)(0) = 1
+
+  @tailrec
+  def loop(iter: Int): Array[Array[Int]] = {
+    if (iter != numberOfRows) {
+      println("Iter: " + iter)
+      println("Length: " + tree(iter).length)
+      for (col <- 0 until tree(iter).length) {
+        if (col == 0 || col == tree(iter).length - 1)
+          tree(iter)(col) = 1
+        else {
+          tree(iter)(col) = tree(iter - 1)(col - 1) + tree(iter - 1)(col)
+        }
+      }
+      loop(iter + 1)
+    } else {
+      tree
+    }
+  }
+  loop(1)
+}
+
+val result = pascal(5)
+
+PascalTriangle.print(4)
