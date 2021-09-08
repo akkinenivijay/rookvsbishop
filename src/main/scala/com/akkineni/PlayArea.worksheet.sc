@@ -1,3 +1,4 @@
+import com.akkineni.learn.Fibonnaci
 import scala.util.Random
 import com.akkineni.Utils
 import com.akkineni.Rook
@@ -39,3 +40,10 @@ val grouped = Array(1, 2, 3, 4, 5, 6, 7).groupBy(_ % 3)
 val grouped5 = Array(1, 2, 3, 4, 5, 6, 7).groupBy(_ % 5)
 
 val x = t.view.map(_ + 3).filter(_ % 3 == 0)
+
+Vector.tabulate(5)(n => n * n)
+
+val s1 = (1 +: (2 +: (3 +: (4 +: (5 +: Nil)))))
+val l = (1 :: (2 :: (3 :: (4 :: (5 :: Nil)))))
+
+val f = Fibonnaci.generate(5)
