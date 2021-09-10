@@ -2,7 +2,7 @@ package com.akkineni.learn
 
 import scala.annotation.tailrec
 
-/** return nth fibonnaci number using tail recursive function and also prints
+/** return nth Fibonacci number using tail recursive function and also prints
   * numbers.
   */
 object Fibonnaci {
