@@ -2,7 +2,7 @@ package com.akkineni.learn
 
 import org.scalatest.funsuite.AnyFunSuite
 
-class MsgSuite extends AnyFunSuite {
+class LearnSuite extends AnyFunSuite {
   test("Recursive print of messages") {
     val result = Msg.printMessages(
       Array(
@@ -24,5 +24,16 @@ class MsgSuite extends AnyFunSuite {
                        |	#5 I am Cow
                        |		#6 Here me moo, moo
                        |""".stripMargin)
+  }
+
+  test("fibonacci number generator") {
+    assert(Fibonacci.generate(4) == 2)
+  }
+
+  test("pascal triangle") {
+    val result = PascalTriangle.generate(numberOfRows = 2)
+    assert(
+      (result(0) sameElements Array(1)) & (result(1) sameElements Array(1, 1))
+    )
   }
 }

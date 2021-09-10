@@ -1,9 +1,9 @@
-package com.zushealth
+package com.akkineni
 
-import org.scalatest.funsuite.AnyFunSuite
-import scala.util.Random
 import org.mockito.MockitoSugar.{mock, when}
-import com.akkineni.Utils
+import org.scalatest.funsuite.AnyFunSuite
+
+import scala.util.Random
 
 class UtilsSuite extends AnyFunSuite {
   test("Generate 15 Moves all tails and 12 moves.") {

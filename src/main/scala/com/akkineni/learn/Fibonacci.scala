@@ -5,7 +5,7 @@ import scala.annotation.tailrec
 /** return nth Fibonacci number using tail recursive function and also prints
   * numbers.
   */
-object Fibonnaci {
+object Fibonacci {
 
   def generate(n: Int): Int = {
     println(0)

@@ -9,6 +9,7 @@ object PascalTriangle {
   /** Generates a triangle using O(n^2) space and O(n^2) time complexity
     *
     * @param numberOfRows
+    *   number of rows.
     * @return
     */
   def generate(numberOfRows: Int): Array[Array[Int]] = {
@@ -20,7 +21,7 @@ object PascalTriangle {
     @tailrec
     def loop(iter: Int): Array[Array[Int]] = {
       if (iter != numberOfRows) {
-        for (col <- 0 until tree(iter).length) {
+        for (col <- tree(iter).indices) {
           if (col == 0 || col == tree(iter).length - 1)
             tree(iter)(col) = 1
           else {
@@ -35,12 +36,13 @@ object PascalTriangle {
     loop(1)
   }
 
-  /** Prints a triangle using O(n) space and O(n^2) time complexity
+  /** Prints a triangle using O(n) space and O(n2) time complexity
     *
     * @param numberOfRows
+    *   number of rows
     * @return
     */
-  def print(numberOfRows: Int) = {
+  def print(numberOfRows: Int): Unit = {
 
     val inputArray: Array[Int] = Array.ofDim[Int](1)
     inputArray(0) = 1

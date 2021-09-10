@@ -1,6 +1,5 @@
-import com.akkineni.learn.Fibonnaci
 import com.akkineni.learn.PascalTriangle
 
-val result = PascalTriangle.generate(5)
+val result = PascalTriangle.generate(2)
 
-PascalTriangle.print(4)
+val l = PascalTriangle.generate(2) == Array(Array(1), Array(1, 1))
