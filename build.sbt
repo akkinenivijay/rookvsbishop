@@ -5,8 +5,6 @@ ThisBuild / version := "0.5.0-SNAPSHOT"
 ThisBuild / organization := "com.akkineni"
 ThisBuild / organizationName := "Akkineni Inc"
 ThisBuild / organizationHomepage := Some(url("https://akkineni.org"))
-ThisBuild / semanticdbEnabled := true
-ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
 
 lazy val root = (project in file("."))
   .settings(
