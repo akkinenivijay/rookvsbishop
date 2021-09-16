@@ -18,7 +18,7 @@ object Fibonacci {
         loop(n1 = n2, n2 = n1 + n2, iter = iter - 1)
       }
     }
-    val result = loop(0, 1, n)
+    val result: Int = loop(0, 1, n)
     println(result)
     result
   }
