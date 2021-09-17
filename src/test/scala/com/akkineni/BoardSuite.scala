@@ -14,7 +14,7 @@ class BoardSuite extends AnyFunSuite {
     val bishop = new Bishop(3, 'c')
     val board = Board(rook, bishop)
     val addedPeice = board.findRook
-    assert(addedPeice.row() == rook.row())
+    assert(addedPeice.row == rook.row)
   }
 
   test("Remove a Piece from the Board") {

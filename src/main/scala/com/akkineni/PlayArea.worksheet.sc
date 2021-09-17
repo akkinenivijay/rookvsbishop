@@ -1,14 +1,9 @@
 import com.akkineni.learn.Factorial
 import com.akkineni.learn.PascalTriangle
-import scala.language.postfixOps
 
 val result = PascalTriangle.generate(2)
 
-val l = PascalTriangle.generate(2) sameElements Array(Array(1), Array(1, 1))
-
 Factorial.compute(10)
-
-5 % 2
 
 class Person(val name: String, val favoriteMovie: String, val age: Int) {
   def likes(movie: String): Boolean = movie == favoriteMovie
@@ -30,23 +25,19 @@ class Person(val name: String, val favoriteMovie: String, val age: Int) {
   def apply(num: Int) = s"$name watched her $favoriteMovie $num times"
 }
 
-val mary = new Person("Mary", "Inception", 36)
-mary likes "Inception"
+abstract class Animal {
+  val creatureType: String
+  def eat: Unit
+}
 
-val tom = new Person("Tom", "Fight Club", 30)
+class Dog extends Animal {
 
-mary + "The Rockstar"
+  override val creatureType: String = "canine"
 
-!mary
+  override def eat: Unit = println("crunch crunch")
 
-mary()
+}
 
-mary isAlive
-
-+mary
-
-mary learns "Scala"
-
-mary learnsScala
-
-mary(2)
+trait Carnivore {
+  def eat(animal: Animal): Unit
+}

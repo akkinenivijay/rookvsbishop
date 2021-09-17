@@ -2,7 +2,7 @@ package com.akkineni
 
 /** Abstract class of Piece type.
   */
-abstract class Piece(row: Int, col: Char) {
+abstract class Piece(val row: Int, val col: Char) {
 
   // Row and Column range validation.
   if (col > 'h' | col < 'a')
@@ -15,8 +15,6 @@ abstract class Piece(row: Int, col: Char) {
     * NotImplemented Error
     */
   def capture(piece: Piece): Boolean = ???
-  def row(): Int = row
-  def col(): Char = col
 }
 
 /** Class for Rook Type
@@ -77,7 +75,7 @@ class Bishop(row: Int, col: Char) extends Piece(row: Int, col: Char) {
   override def capture(piece: Piece): Boolean = {
     piece match {
       case rook: Rook =>
-        if (Math.abs(rook.col() - col) == Math.abs(rook.row() - row))
+        if (Math.abs(rook.col - col) == Math.abs(rook.row - row))
           true
         else
           false

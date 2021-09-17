@@ -13,7 +13,7 @@ class Board() {
     *   a chess piee
     */
   def addPiece(piece: Piece): Unit = {
-    state(piece.row() - 1)(piece.col() - 'a') = piece
+    state(piece.row - 1)(piece.col - 'a') = piece
   }
 
   /** Removes an object of Type `Piece` at the given coordinates. We may not use
@@ -23,7 +23,7 @@ class Board() {
     *   a piece could be a rook or bishop
     */
   def removePiece(piece: Piece): Unit = {
-    state(piece.row() - 1)(piece.col() - 'a') = null
+    state(piece.row - 1)(piece.col - 'a') = null
   }
 
   /** Finds the current position of the rook and returns the rook piece.
