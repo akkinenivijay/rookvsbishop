@@ -1,9 +1,11 @@
 import com.akkineni.learn.Factorial
 import com.akkineni.learn.PascalTriangle
 
-val result = PascalTriangle.generate(2)
+val result = PascalTriangle.generate(5)
 
-Factorial.compute(10)
+Factorial.compute(5)
+
+1.toDouble
 
 class Person(val name: String, val favoriteMovie: String, val age: Int) {
   def likes(movie: String): Boolean = movie == favoriteMovie
